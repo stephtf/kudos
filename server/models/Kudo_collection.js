@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, mongoose } = require('mongoose');
 const userSchema = require('./User');
 
 const kudoSchema = new Schema ({
@@ -20,8 +20,17 @@ const kudoSchema = new Schema ({
     personal_notes: {
         type: String,
     },
-    user_id: [userSchema._id],
-    timestamps: true,
+    user_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
+    timestamps: {
+        type: Date, 
+        default: Date.now, 
+    },
 })
 
-const Kudo_collection = model('Kudo_collection', kudoSchema);
+const Kudos = model('Kudo_collection', kudoSchema);
+
+module.exports = Kudos; 
