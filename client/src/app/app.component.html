@@ -1,21 +1,10 @@
 <h1>Kudos</h1>
 
 <ul class="list-group">
-  <li 
-      *ngFor="let user of users"
-      class="list-group-item">
-      {{ user.username }}
-  </li>
+<user-component></user-component>
+
 <h2>THE KUDO FROM THE DATABASE:</h2>
-  <li 
-    *ngFor="let post of kudos"
-    class="list-group-item">
-    {{ post.text }}
-  </li>
-<h2>THE KUDO LINK BELOW TEST:</h2>
-  <li 
-    *ngFor="let post of kudos"
-    class="list-group-item">
-    {{ post.img_url }}
-  </li>
+
 </ul>
+
+<kudo-component></kudo-component>

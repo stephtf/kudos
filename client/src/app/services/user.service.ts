@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class PostService {
+export class UserService {
   private usersUrl = 'http://localhost:3001/users';
   private kudosUrl = 'http://localhost:3001/kudos/62b716469b33e2919e32ee6f'
    

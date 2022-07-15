@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PostService } from './post.service';
+import { KudoService } from './kudo.service';
 
-describe('PostService', () => {
-  let service: PostService;
+describe('KudoService', () => {
+  let service: KudoService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PostService);
+    service = TestBed.inject(KudoService);
   });
 
   it('should be created', () => {
