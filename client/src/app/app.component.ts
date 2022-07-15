@@ -9,14 +9,20 @@ import { PostService } from './services/post.service';
 export class AppComponent implements OnInit {
   title = 'Kudos';
 
-  posts:any; 
+  users:any; 
+  kudos:any;
 
   constructor(private service:PostService) {} 
 
   ngOnInit(): void {
-    this.service.getPosts() 
+    this.service.getUsers() 
     .subscribe(response => {
-      this.posts = response;
+      this.users = response;
+    })
+
+    this.service.getKudos() 
+    .subscribe(response => {
+      this.kudos = response;
     })
   }
 }

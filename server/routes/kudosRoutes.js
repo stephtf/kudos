@@ -34,7 +34,7 @@ router.delete('/kudos/:_id', async (req, res) => {
 // localhost/kudos/_:id - update a kudo (associated with a single user)
 router.put('/kudos/:_id', async (req, res) => {
     try { 
-        const updatedKudo = await Kudos.findOneAndUpdate({ _id: req.params._id });
+        const updatedKudo = await Kudos.findOneAndUpdate({ _id: req.params._id }, { date: req.body.date, text: req.body.text, category: req.body.category, img_url: req.body.img_url, gif_url: req.body.gif_url, personal_notes: req.body.personal_notes });
         res.status(200).json(updatedKudo);
     } catch (err) {
         res.status(500).json(err);

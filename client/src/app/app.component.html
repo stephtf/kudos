@@ -2,8 +2,20 @@
 
 <ul class="list-group">
   <li 
-      *ngFor="let post of posts"
+      *ngFor="let user of users"
       class="list-group-item">
-      {{ post.username }}
+      {{ user.username }}
+  </li>
+<h2>THE KUDO FROM THE DATABASE:</h2>
+  <li 
+    *ngFor="let post of kudos"
+    class="list-group-item">
+    {{ post.text }}
+  </li>
+<h2>THE KUDO LINK BELOW TEST:</h2>
+  <li 
+    *ngFor="let post of kudos"
+    class="list-group-item">
+    {{ post.img_url }}
   </li>
 </ul>
