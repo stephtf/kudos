@@ -5,11 +5,29 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class KudoService {
-  private kudosUrl = 'http://localhost:3001/kudos/62b716469b33e2919e32ee6f'
+  // delete and put 
+  private kudosById = 'http://localhost:3001/kudos/62b8546dbf9d7ae41e70c06d'
+  // get
+  private kudosByUserId = 'http://localhost:3001/kudos/62b85458bf9d7ae41e70c06a'
+  // post
+  private kudosPost = 'http://localhost:3001/kudos'
 
+  
   constructor(private httpClient: HttpClient) { }
 
-  getKudos() {
-    return this.httpClient.get(this.kudosUrl);
+  deleteKudosById() {
+    return this.httpClient.delete(this.kudosById);
+  }
+
+  updateKudosById(updatedKudo: any) {
+    return this.httpClient.put(this.kudosById, updatedKudo).subscribe(data => console.log(data));
+  }
+
+  getKudosByUserId() {
+    return this.httpClient.get(this.kudosByUserId);
+  }
+
+  postNewKudo(newKudo: any) {
+    return this.httpClient.post(this.kudosPost, newKudo);
   }
 }

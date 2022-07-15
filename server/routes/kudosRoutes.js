@@ -11,6 +11,16 @@ router.get('/kudos/:user_id', async (req,res) => {
     }
 });
 
+// localhost/users - get all the kudos
+router.get('/kudos', async (req,res) => {
+    try {
+        const allKudos = await Kudos.find();
+        res.status(200).json(allKudos);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // localhost/kudos - post a new kudo (associated with single user)
 router.post('/kudos', async (req,res) => {
     try {
@@ -32,6 +42,7 @@ router.delete('/kudos/:_id', async (req, res) => {
 });
 
 // localhost/kudos/_:id - update a kudo (associated with a single user)
+// requires user_id in req.body
 router.put('/kudos/:_id', async (req, res) => {
     try { 
         const updatedKudo = await Kudos.findOneAndUpdate({ _id: req.params._id }, { date: req.body.date, text: req.body.text, category: req.body.category, img_url: req.body.img_url, gif_url: req.body.gif_url, personal_notes: req.body.personal_notes });
