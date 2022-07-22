@@ -7,40 +7,61 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./image-upload.component.scss']
 })
 export class ImageUploadComponent implements OnInit {
+// newImageFileData: any;
 newImageFile: any;
 imageName: any; 
-imageLink: any; 
+awsData: any; 
+imageUrl: any;
 
 @Output() imageEvent = new EventEmitter<string>();
 
 // get imageUrl from server 
-private imageUrl = 'http://localhost:3001/s3Url'
-
-
+private getUrl = 'http://localhost:3001/s3Url'
 
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
+
   }
 
 handleImageInput = (event: Event) => {
     this.newImageFile = (<HTMLInputElement>event.target).files; 
     this.imageName = this.newImageFile[0].name; 
+   
+    // console.log(this.newImageFile);
 }  
+
+
 
 sendImage() {
   this.imageEvent.emit(this.imageName);
+  
   // KudoComponent.kudoData.img_url = this.imageName;
   // KudoComponent.newKudoPost(); 
-  this.postToAws();
+
+  // grab the AWS secure link
+  this.httpClient.get(this.getUrl).subscribe(response => {
+    this.awsData = response;
+
+    this.httpClient.put(this.awsData.url, this.newImageFile[0]).subscribe(data => data);
+    
+
+    // .split('https://kudos2u.s3.amazonaws.com/')[1].slice(0,32)
+
+    // this.imageUrl = this.awsData.url.split(0,65);
+
+  
+  });
+
+  // this.postImage()
 }
 
-postToAws() {
-  this.imageLink = this.httpClient.get(this.imageUrl); 
-  console.log(this.imageLink)
-  
-  this.httpClient.put(this.imageLink, this.newImageFile); 
-}
+
+
+// postImage() {
+//   this.httpClient.put(this.awsData.url, this.newImageFile[0]).subscribe(data => data);
+//   // this.bucketImage = this.awsData.url.split('?')[0];
+// }
 
 
 

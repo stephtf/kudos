@@ -40,17 +40,14 @@ export class KudoComponent implements OnInit {
 
   // update kudo by kudo ID
   public updateKudo = (data: any) => {
-    console.log(data);
-    // this.kudoData = data;
+    data
   }
 
   // post a new kudo (user ID required)
   public newKudoPost() {
     // this.textData = this.kudoData.text; 
     this.kudoService.postNewKudo(this.kudoData)
-      .subscribe(data => {
-        console.log(data); 
-      })
+      .subscribe(data => data)
   }
 
   onUpdate(event: Event) {

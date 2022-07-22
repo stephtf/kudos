@@ -20,7 +20,7 @@ export class KudoService {
   }
 
   updateKudosById(updatedKudo: any) {
-    return this.httpClient.put(this.kudosById, updatedKudo).subscribe(data => console.log(data));
+    return this.httpClient.put(this.kudosById, updatedKudo).subscribe(data => data);
   }
 
   getKudosByUserId() {
