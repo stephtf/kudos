@@ -1,0 +1,14 @@
+<h2>Try uploading an image:</h2>
+
+<div class="upload-container">
+    <div class="input-group photo-group" style="border:none"> 
+        <input class="form-control" type="file" accept="image/*" (input)="handleImageInput($event)" id="imageName" style="display: none"/>
+        <label for="imageName" class="btn btn-dark m-0 add-photo-btn rounded">Add Photo</label>       
+        <p class="form-control m-0">{{ imageName }}</p>
+        <button class="btn purple-button" (click)="sendImage()">Upload</button>
+    </div>
+        <small class="upload-progress">% completed</small>
+        <!-- <p>{{accessKey}}</p>
+        <p>{{secretAccessKey}}</p> -->
+        <p>image goes here:</p><img class="" />
+</div>

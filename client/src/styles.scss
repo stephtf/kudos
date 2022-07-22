@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 20px;
+}
+
+.purple-button {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.purple-button:hover {
+    color: #5CE1E6;
+}

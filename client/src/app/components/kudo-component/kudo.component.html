@@ -1,3 +1,7 @@
+
+<image-upload (imageEvent)="receiveImage($event)"></image-upload>
+
+<div class="mt-4">
 <p>kudo-component works!</p>
 <li 
 *ngFor="let kudo of kudos"
@@ -11,11 +15,16 @@ class="list-group-item">
 {{ kudo.img_url }}
 </li>
 
-<form class="form-group" #Formtext>
-    <input type="text">
-<button (submit)="updateKudo(kudoData)">submit update</button>
+<form class="form-group" >
+    <input type="text" class="form-control">
+    <button class='btn btn-info' (submit)="updateKudo(kudoData)">submit update</button>
 </form>
 
 <h3>testing this button</h3>
-<input type="text" class="form-control" (input)="onUpdate($event)">
-<button class='btn btn-primary' (click)="newKudoPost()">submit new kudo</button>
+<form class="form-group">
+    <input type="text" class="form-control" (input)="onUpdate($event)" placeholder="enter text here">
+    <button class='btn purple-button' (click)="newKudoPost()">submit new kudo</button>
+</form>
+</div>
+
+

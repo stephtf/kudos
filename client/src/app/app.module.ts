@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { KudoComponent } from './components/kudo-component/kudo.component';
 import { UserComponent } from './components/user-component/user.component';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KudoComponent,
     UserComponent,
+    ImageUploadComponent,
   ],
   imports: [
     BrowserModule,

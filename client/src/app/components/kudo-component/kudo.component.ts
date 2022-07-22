@@ -9,13 +9,9 @@ import { KudoService } from '../../services/kudo.service';
   styleUrls: ['./kudo.component.scss']
 })
 export class KudoComponent implements OnInit {
-  @ViewChild('Formtext') input: any;
-  
   kudos:any;
-  // textData = '';
 
-
-  @Input() kudoData = { 
+  kudoData = { 
     date:'', 
     text: '', 
     category: '', 
@@ -25,6 +21,7 @@ export class KudoComponent implements OnInit {
     user_id: '62b85458bf9d7ae41e70c06a', 
     timestamps: ''
   }
+
 
   constructor(private kudoService:KudoService) { }
 
@@ -58,6 +55,11 @@ export class KudoComponent implements OnInit {
 
   onUpdate(event: Event) {
     this.kudoData.text = (<HTMLInputElement>event.target).value; 
+  }
+
+  receiveImage($event: any) {
+    this.kudoData.img_url = $event;
+    this.newKudoPost();
   }
 }
 
