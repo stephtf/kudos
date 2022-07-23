@@ -1,4 +1,7 @@
-<h2>Try uploading an image:</h2>
+<p>image goes here:</p>
+<div class="row">
+<img class="" src={{testImage}} /><img src={{imageUrl}} alt="" />
+</div>
 
 <div class="upload-container">
     <div class="input-group photo-group" style="border:none"> 
@@ -7,8 +10,9 @@
         <p class="form-control m-0">{{ imageName }}</p>
         <button class="btn purple-button" (click)="sendImage()">Upload</button>
     </div>
+    
         <small class="upload-progress">% completed</small>
         <!-- <p>{{accessKey}}</p>
         <p>{{secretAccessKey}}</p> -->
-        <p>image goes here:</p><img class="" src={{imageUrl}} />
+       
 </div>

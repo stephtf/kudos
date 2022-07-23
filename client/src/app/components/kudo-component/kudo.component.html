@@ -1,19 +1,18 @@
+<li *ngFor="let kudo of kudos" [ngClass]="{'hide': kudo.img_url === ''}">
+        <img src={{kudo.img_url}} alt="">
+</li>
 
 <image-upload (imageEvent)="receiveImage($event)"></image-upload>
 
 <div class="mt-4">
 <p>kudo-component works!</p>
+<img src={{kudos.img_url}} alt="">
 <li 
 *ngFor="let kudo of kudos"
 class="list-group-item">
 {{ kudo.text }}
 </li>
-<h2>THE KUDO LINK BELOW TEST:</h2>
-<li 
-*ngFor="let kudo of kudos"
-class="list-group-item">
-{{ kudo.img_url }}
-</li>
+
 
 <form class="form-group" >
     <input type="text" class="form-control">
@@ -25,6 +24,8 @@ class="list-group-item">
     <input type="text" class="form-control" (input)="onUpdate($event)" placeholder="enter text here">
     <button class='btn purple-button' (click)="newKudoPost()">submit new kudo</button>
 </form>
+
+
 </div>
 
 
